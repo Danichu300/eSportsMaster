@@ -30,7 +30,7 @@ and open the template in the editor.
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Portada<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../home.html">Portada<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="menuDesplegableJugadores" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jugadores</a>

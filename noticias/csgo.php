@@ -30,7 +30,7 @@ and open the template in the editor.
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Portada<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../home.html">Portada<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="menuDesplegableJugadores" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jugadores</a>
@@ -65,9 +65,9 @@ and open the template in the editor.
                     </li>
                     <?php
                     session_start();
-                    if (isset($_SESSION["user_name"])) {
+                    if (isset($_SESSION['nombre_usuario'])) {
                         echo "<li class='nav-item dropdown'>";
-                        echo "<a class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Hola, " . $_SESSION["user_name"] . "</a>";
+                        echo "<a class='nav-link' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Hola, " . $_SESSION['nombre_usuario'] . "</a>";
                         echo "</li>";
                     } else {
                         echo "<li class='nav-item dropdown'>";
@@ -76,23 +76,9 @@ and open the template in the editor.
                     }
                     ?>
                     <li class="nav-item dropdown">
-                        <a id="iniciar" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrarse/Entrar</a>
-                        <div class="dropdown-menu" aria-labelledby="iniciar">
-                            <form id="menu_inicio" method="post" action="../archivos_php/login.php" class="dropdown-menu p-4">                               
-                                <div class="form-group">
-                                    <label for="user_registro">Usuario</label>
-                                    <input type="text" id="user_login" class="form-control" name="user_login" placeholder="usuario">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pass_registro">Contraseña</label>
-                                    <input type="password" id="pass_login" class="form-control" name="pass_login" placeholder="*****">
-                                </div>
-                                <label><input type="radio" value="Registrarse" name="radio"/>Registrarse</label>
-                                <label><input type="radio" value="Entrar" name="radio"/>Entrar</label><br/>
-                                <label><input type="radio" value="Salir" name="radio"/>Salir</label>
-                                <button type="submit" id="enviar_login" class="btn btn-primary">Acceder</button>
-                            </form>
-                        </div>
+                            <div ALIGN=center>
+                                <input type="button" onClick="document.location = '../controlador_logout.php'" name="cerrar_sesion" value="Logout">
+                            </div>
                     </li>
                 </ul>
             </div>
@@ -243,7 +229,7 @@ and open the template in the editor.
                     <!-- action="../archivos_php/comentarios.php" -->
                     <form id="formComments" method="post" action="../archivos_php/comentarios.php">
                         <p>Introduce tu nombre de usuario</p>
-                        <input id="usuario" name="user_comment" type="text" required/>
+                        <input id="usuario" name="user_comment" type="text" value=<?= $_SESSION['nombre_usuario'] ?> readonly/>
                         <p>Escribe lo que quieres compartir</p>
                         <textarea id="comentario" name="text_comment" required></textarea>
                         <input type="hidden" name="videojuego" value="csgo"/>
