@@ -1,0 +1,53 @@
+.parallax {
+    /* The image used */
+    background-image: url("../img/esport-tournaments.jpg");
+
+    /* Set a specific height */
+    min-height: 800px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav{
+    display: flex;
+    height: 200px;
+    background-color: #393232;
+    justify-content: center;
+    align-content: center;
+    overflow: auto;
+}
+
+.logo_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid lightgrey;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    float: left;
+    overflow: hidden;
+    margin: 20px;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+.logo_container img{
+    width: 100%;
+    height: 100%;
+}
+
+.logo_container:hover{
+    border:5px solid darkgray;
+}
+
+.parallax > h1{
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+    font-family: Courier New;
+}

@@ -1,0 +1,80 @@
+.parallax {
+    /* The image used */
+    background-image: url("../img/dotabackground.jpg");
+
+    /* Set a specific height */
+    min-height: 800px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 15px;
+}
+
+.jumbotron{
+    background: transparent;
+}
+
+/* Para evitar un espacio en blanco debajo del último aside. */
+
+aside:last-child {
+   /* margin-bottom: 0;*/
+}
+
+.jumbotron > h1, .jumbotron > p{
+    color: white;
+}
+
+article{
+    color: white;
+    background-color: #301011;
+}
+
+article > hr{
+    border-color: white;
+}
+
+article:hover{
+    border: 1px solid grey;
+}
+
+#menu_admin, #menu_registro{
+    display: block;
+}
+
+#menu_admin, #menu_registro{
+    width: 100px;
+    height: 250px;
+}
+
+.noticia{
+    background: gray;
+    margin: 15px 0;
+    padding: 15px;
+}
+
+.noticia h3{
+    text-align: center;
+}
+
+.noticia p{
+    font-size: 25px;
+}
+
+.noticia hr{
+    border-color: white;
+}
+
+.noticia img{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#contenedor_imagen{
+    width: 50%;
+    height: 300px;
+    margin: 15px 25%;
+}

@@ -1,0 +1,83 @@
+.parallax {
+    /* The image used */
+    background-image: url("../img/wip.jpg");
+
+    /* Set a specific height */
+    min-height: 800px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron{
+     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.jumbotron > h1, .jumbotron > p{
+    color: white;
+}
+
+main{
+    padding-bottom: 15px;
+}
+
+article{
+    color: white;
+}
+
+article > hr{
+    border-color: white;
+}
+
+article > h1{
+    line-height: 51px;
+}
+
+article:hover{
+    border: 1px solid red;
+}
+
+.plus{
+    width: 60px;
+    height: 60px;
+}
+
+.formularioInsert{
+    margin: 0 auto;
+    width: 90%;
+    font-size: 50%;
+    margin-top: 10px;
+}
+/* 2c4875 */
+.formularioInsert > input,select {
+    width: 100%;
+}
+
+.formularioInsert > [type=submit],p {
+    margin-top: 10px;
+}
+
+#formularioNoticia{
+    padding: 15px;
+}
+
+#formularioNoticia > h3{
+    color: white;
+    margin-top: 15px;
+}
+
+#formularioNoticia > h3:first-child{
+    margin-top: 0;
+}
+
+#formularioNoticia > [type=file]{
+    color: white;
+}
+
+#formularioNoticia > [type=submit]{
+    display: block;
+    margin-top: 15px;
+}
