@@ -9,7 +9,6 @@ $usuario = $_POST["usuario"];
 $password =  $_POST["password"];
 $sql = "SELECT * FROM usuario";
 $result = $conn->query($sql);
-echo "<br>";
 if($result->num_rows > 0){
   while($row = $result->fetch_assoc()){
     if($usuario == $row["nombre_usuario"] && $password == $row["password"]){

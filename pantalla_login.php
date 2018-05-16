@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-  <h2>Stacked form</h2>
+  <h2>Inicie Sesión para acceder al contenido web</h2>
   <form action="controlador_login.php" method="post">
     <div class="form-group">
       <label for="usuario">Usuario:</label>
@@ -22,9 +22,28 @@
       <label for="password">Password:</label>
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+    <button class="btn btn-primary" id="registro">Registro</button>
   </form>
 </div>
-
+    <script>
+       
+        let btnregistro = document.querySelector('#registro');
+        
+        btnregistro.addEventListener('click',(event) => {
+           
+            event.preventDefault();
+            let usuario = document.querySelector('#usuario').value;
+            let password = btoa(document.querySelector('#password').value);
+            
+            let xhr = new XMLHttpRequest();
+                      
+            xhr.open('POST','http://localhost/pruebas/eSportsReview/controlador_registro.php');
+            
+            xhr.send(`usuario=${usuario}&password=${password}`);
+            //fetch('http://localhost/pruebas/eSportsReview/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
+            });
+        
+    </script>
 </body>
 </html>
