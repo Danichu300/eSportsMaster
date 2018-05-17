@@ -10,7 +10,7 @@ $usuario = $_POST["usuario"];
 $password = $_POST["password"];
 $admin = 0;
 
-$sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "'";
+$sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "' AND password = '" . $password . "'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     //header('Location: pantalla_login_error.php');
