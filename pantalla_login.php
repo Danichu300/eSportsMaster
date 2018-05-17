@@ -22,13 +22,14 @@
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" id="entrar" class="btn btn-primary">Entrar</button>
                 <button class="btn btn-primary" id="registro">Registro</button>
             </form>
         </div>
         <script>
 
             let btnregistro = document.querySelector('#registro');
+            let btnentrar = document.querySelector('#entrar');
 
             btnregistro.addEventListener('click', (event) => {
 
@@ -37,23 +38,41 @@
                 let password = btoa(document.querySelector('#password').value);
 
                 let xhr = new XMLHttpRequest();
-
-                //xhr.open('POST', 'http://localhost/pruebas/eSportsReview/controlador_registro.php');
-
-                //xhr.send(`usuario=${usuario}&password=${password}`);
-                //xhr.send('usuario=' + usuario + '&password=' + password);
+                
                 xhr.onreadystatechange = function (aEvt) {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         console.log('Location:', window.location);
                         window.location = "home.html";
-                    }else if(xhr.readyState == 4 && xhr.status == 404){
-                         window.location = "pantalla_login_error.php";
+                    } else if (xhr.readyState == 4 && xhr.status == 404) {
+                        window.location = "pantalla_login_error.php";
                     }
                 };
                 xhr.open("POST", "http://localhost/pruebas/eSportsReview/controlador_registro.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send('usuario=' + usuario + '&password=' + password);
                 //fetch('http://localhost/pruebas/eSportsReview/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
+            });
+            
+            btnentrar.addEventListener('click', (event) => {
+
+                event.preventDefault();
+                let usuario = document.querySelector('#usuario').value;
+                let password = btoa(document.querySelector('#password').value);
+
+                let xhr = new XMLHttpRequest();
+                
+                xhr.onreadystatechange = function (aEvt) {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log('Location:', window.location);
+                        window.location = "home.html";
+                    } else if (xhr.readyState == 4 && xhr.status == 404) {
+                        window.location = "pantalla_login_error.php";
+                    }
+                };
+                xhr.open("POST", "http://localhost/pruebas/eSportsReview/controlador_login.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send('usuario=' + usuario + '&password=' + password);
+                //fetch('http://localhost/pruebas/eSportsReview/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
 
         </script>

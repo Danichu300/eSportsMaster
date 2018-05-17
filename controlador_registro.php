@@ -9,20 +9,6 @@ $login = false;
 $usuario = $_POST["usuario"];
 $password = $_POST["password"];
 $admin = 0;
-/* $sql = "INSERT INTO usuario (id_usuario, nombre_usuario, password, admin) VALUES (null,'" . $usuario . "','" . $password . "'," . $admin . ")";
-  if($conn->query($sql)){
-  $login = true;
-  $_SESSION['nombre_usuario'] = $usuario;
-  }
-  if($login){
-  $sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "'";
-  http_response_code(200);
-  if($conn->query($sql)){
-  http_response_code(404);
-  header('Location: pantalla_login_error.php');
-  }
-
-  } */
 
 $sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "'";
 $result = $conn->query($sql);
