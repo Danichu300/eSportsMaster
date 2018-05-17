@@ -12,68 +12,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="../css/lolcss.css"/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <!-- Navbar content -->
-            <a class="navbar-brand" href="#">No te lo pierdas</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../home.html">Portada<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="menuDesplegableJugadores" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jugadores</a>
-                        <div class="dropdown-menu" aria-labelledby="menuDesplegableJugadores">
-                            <?php
-                            require("../archivos_php/conexion.php");
 
-                            $sql = 'SELECT nombre_jugador FROM jugador JOIN equipo ON equipo=id_equipo WHERE videojuego = ' . 6;
-                            $result = $conn->query($sql);
-
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<a class='dropdown-item' href='#'>" . $row['nombre_jugador'] . "</a>";
-                            }
-                            ?>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="entrar" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-                        <div class="dropdown-menu" aria-labelledby="menuDesplegableEquipos">
-                            <form method="post" action="../archivos_php/admin.php" class="dropdown-menu p-4" id="menu_admin">
-                                <div class="form-group">
-                                    <label for="id">ID</label>
-                                    <input type="number" id="id" class="form-control" name="id_admin" placeholder="NNNNN">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pass">Contraseña</label>
-                                    <input type="password" id="pass" class="form-control" name="pass_admin" placeholder="*****">
-                                </div>
-                                <button type="submit" id="enviar_admin" class="btn btn-primary">Sign in</button>
-                            </form>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="registrarse" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrarse</a>
-                        <div class="dropdown-menu" aria-labelledby="menuDesplegableEquipos">
-                            <form id="menu_registro" method="post" action="../archivos_php/login.php" class="dropdown-menu p-4">                               
-                                <div class="form-group">
-                                    <label for="user_registro">Usuario</label>
-                                    <input type="text" id="user_registro" class="form-control" name="user_registro" placeholder="usuario">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pass_registro">Contraseña</label>
-                                    <input type="password" id="pass_registro" class="form-control" name="pass_registro" placeholder="*****">
-                                </div>
-                                <input type="hidden" name="admin" value="0"/>
-                                <button type="submit" id="enviar_registro" class="btn btn-primary">Registrarse</button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php include("../archivos_php/navegador.php"); ?>
 
         <div class="parallax">
 
@@ -194,17 +134,16 @@ and open the template in the editor.
                         </div>
                     </div>
                 </main>
-                
+
                 <?php
-                
                 $sql = "SELECT * FROM noticia WHERE videojuego = 'lol'";
                 $result = $conn->query($sql);
-                
-                while($row = $result->fetch_array()){
+
+                while ($row = $result->fetch_array()) {
                     echo "<div class='noticia'>";
                     echo "<h3>" . $row['titulo'] . "</h3>";
                     echo "<hr/>";
-                    if($row['imagen']){
+                    if ($row['imagen']) {
                         echo "<div id='contenedor_imagen'>";
                         echo "<img src='../img/" . $row['imagen'] . "' alt='imagen_noticia'/>";
                         echo "</div>";
@@ -233,8 +172,8 @@ and open the template in the editor.
                 <?php
                 $sql = "SELECT * FROM comentario WHERE videojuego = 'lol'";
                 $result = $conn->query($sql);
-           
-                while($row = $result->fetch_array()){
+
+                while ($row = $result->fetch_array()) {
                     $buscarUsuario = "SELECT nombre_usuario FROM usuario WHERE id_usuario = " . $row['usuario'] . "";
                     $resultado = $conn->query($buscarUsuario);
                     $usuario = $resultado->fetch_assoc();
