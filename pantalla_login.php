@@ -13,7 +13,7 @@
     <body>
         <div class="parallax">
             <div class="container">
-                <h2>Inicie Sesión para acceder al contenido web</h2>
+                <h2 id="title">Inicie Sesión para acceder al contenido web</h2>
                 <form action="controlador_login.php" method="post">
                     <div class="form-group">
                         <label for="usuario">Usuario:</label>
@@ -25,6 +25,7 @@
                     </div>
                     <button id="entrar" class="btn btn-primary">Entrar</button>
                     <button class="btn btn-primary" id="registro">Registro</button>
+                    <button class="btn btn-primary" id="reset">Limpiar campos</button>
                 </form>
             </div>
         </div>
@@ -32,51 +33,52 @@
 
             let btnregistro = document.querySelector('#registro');
             let btnentrar = document.querySelector('#entrar');
+            let btnreset = document.querySelector('#reset');
 
+            let user = document.querySelector('#usuario');
+            let pass = document.querySelector('#password');
+            let title = document.querySelector('#title');
+            
             btnregistro.addEventListener('click', (event) => {
 
                 event.preventDefault();
-                let usuario = document.querySelector('#usuario').value;
-                let password = btoa(document.querySelector('#password').value);
-
-                let xhr = new XMLHttpRequest();
-
-                xhr.onreadystatechange = function (aEvt) {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        console.log('Location:', window.location);
-                        window.location = "home.html";
-                    } else if (xhr.readyState == 4 && xhr.status == 404) {
-                        window.location = "pantalla_login_error.php";
-                    }
-                };
-                xhr.open("POST", "http://localhost/pruebas/eSportsReview/controlador_registro.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.send('usuario=' + usuario + '&password=' + password);
+                enviarPeticion('./controlador_registro.php');
                 //fetch('http://localhost/pruebas/eSportsReview/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
 
             btnentrar.addEventListener('click', (event) => {
-
                 event.preventDefault();
-                let usuario = document.querySelector('#usuario').value;
-                let password = btoa(document.querySelector('#password').value);
+                enviarPeticion('./controlador_login.php');
+                //fetch('http://localhost/pruebas/eSportsReview/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
+            });
+            
+            btnreset.addEventListener('click', (event)=>{
+                event.preventDefault();
+                title.innerHTML = 'Inicie Sesión para acceder al contenido web';
+                user.value = '';
+                pass.value = '';
+                
+            });
+            
+            function enviarPeticion(url){
+                let usuario = user.value;
+                let password = btoa(pass.value);
+                
 
                 let xhr = new XMLHttpRequest();
 
                 xhr.onreadystatechange = function (aEvt) {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
                         console.log('Location:', window.location);
                         window.location = "home.html";
-                    } else if (xhr.readyState == 4 && xhr.status == 404) {
-                        window.location = "pantalla_login_error.php";
-                        //console.log('asdfasdf');
+                    } else if (xhr.readyState === 4 && xhr.status === 404) {
+                        title.innerHTML = "Fallo de Credenciales. Sigue probando.";
                     }
                 };
-                xhr.open("POST", "http://localhost/pruebas/eSportsReview/controlador_login.php", true);
+                xhr.open("POST", url, true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send('usuario=' + usuario + '&password=' + password);
-                //fetch('http://localhost/pruebas/eSportsReview/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
-            });
+            }
 
         </script>
     </body>
