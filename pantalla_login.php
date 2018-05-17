@@ -22,7 +22,7 @@
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
                 </div>
-                <button type="submit" id="entrar" class="btn btn-primary">Entrar</button>
+                <button id="entrar" class="btn btn-primary">Entrar</button>
                 <button class="btn btn-primary" id="registro">Registro</button>
             </form>
         </div>
@@ -67,6 +67,7 @@
                         window.location = "home.html";
                     } else if (xhr.readyState == 4 && xhr.status == 404) {
                         window.location = "pantalla_login_error.php";
+                       //console.log('asdfasdf');
                     }
                 };
                 xhr.open("POST", "http://localhost/pruebas/eSportsReview/controlador_login.php", true);
