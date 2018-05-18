@@ -42,12 +42,14 @@
             btnregistro.addEventListener('click', (event) => {
 
                 event.preventDefault();
+                saltoError();
                 enviarPeticion('./controlador_registro.php');
                 //fetch('http://localhost/pruebas/eSportsReview/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
 
             btnentrar.addEventListener('click', (event) => {
                 event.preventDefault();
+                saltoError();
                 enviarPeticion('./controlador_login.php');
                 //fetch('http://localhost/pruebas/eSportsReview/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
@@ -77,6 +79,12 @@
                 xhr.open("POST", url, true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.send('usuario=' + usuario + '&password=' + password);
+            }
+            
+            function saltoError(){
+                if(user == "" || pass = ""){
+                    title.innerHTML = "No puedes dejar campos vacíos";
+                }
             }
 
         </script>
