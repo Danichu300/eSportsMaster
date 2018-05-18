@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 session_start();
 $login = false;
 $usuario = $_POST["usuario"];
-$password = $_POST["password"];
+$password = crypt($_POST["password"],'$2y$10$fXJEsC0zWAR2tDrmlJgSaecbKyiEOK9GDCRKDReYM8gH2bG2mbO4e');
 $sql = "SELECT * FROM usuario";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

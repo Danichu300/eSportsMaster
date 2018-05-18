@@ -57,7 +57,6 @@
                 title.innerHTML = 'Inicie Sesión para acceder al contenido web';
                 user.value = '';
                 pass.value = '';
-                
             });
             
             function enviarPeticion(url){
