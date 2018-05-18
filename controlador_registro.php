@@ -1,27 +1,38 @@
 <?php
 
+//Requerimos la conexión para poder acceder a la base de datos
 require("archivos_php/conexion.php");
+//Si ha habido error en la conexión, se notifica
 if ($conn->connect_error) {
     die("connection failed: " . $conn->connect_error);
 }
+//Abrimos la sesión
 session_start();
-$login = false;
+//Cogemos el usuario recibido desde la petición
 $usuario = $_POST["usuario"];
-$password = crypt($_POST["password"],'$2y$10$fXJEsC0zWAR2tDrmlJgSaecbKyiEOK9GDCRKDReYM8gH2bG2mbO4e');
+//Cogemos la contraseña recibida desde la petición y la encriptamos con hash
+$password = crypt($_POST["password"], '$2y$10$fXJEsC0zWAR2tDrmlJgSaecbKyiEOK9GDCRKDReYM8gH2bG2mbO4e');
+//Pasamos el permiso de admin, que es 0 (es decir, no es admin)
 $admin = 0;
-
+//Sacamos todos los usuarios para ver si el que se pretende registrar ya está registrado
 $sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "' AND password = '" . $password . "'";
+//Ejecutamos la consulta
 $result = $conn->query($sql);
+//Si la consulta devuelve alguna fila quiere decir que ya está registrado
 if ($result->num_rows > 0) {
-    //header('Location: pantalla_login_error.php');
+    //Devolvemos un 404 para que la petición salga errónea
     http_response_code(404);
+    //Si no, quiere decir que el usuario no está registrado
 } else {
+    //Introducimos los datos del usuario en la base de datos
     $sql = "INSERT INTO usuario (nombre_usuario, password, admin) VALUES ('" . $usuario . "','" . $password . "'," . $admin . ")";
+    //Ejecutamos la consulta
     if ($conn->query($sql)) {
-        $login = true;
+        //Creamos la sesión con el nombre del usuario
         $_SESSION['nombre_usuario'] = $usuario;
-       
     }
-     http_response_code(200);
+    //Devolvemos un 200 si todo ha ido bien
+    http_response_code(200);
 }
+
 ?>

@@ -1,3 +1,4 @@
+<!-- Footer común -->
 <footer class="page-footer font-small unique-color-dark pt-0">
 
     <div style="background-color: #3E4551;">

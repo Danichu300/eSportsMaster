@@ -1,43 +1,16 @@
+//Cuando se carga el documento
 $(document).ready(function () {
-    /*   $("#enviar").click(function () {
-     var id = $("#id").val();
-     var pass = $("#pass").val();
-     
-     $.ajax({
-     type: "POST",
-     url: "../archivos_php/login.php",
-     data: {id: id, pw: pass}
-     });
-     });*/
-    //$("#enviar_admin").click(submitForm);
+    //Al icono asignamos la activación del formulario de correo
     $(".correo").click(activarEmail);
+    //Al enviar el comentario, se vacían los campos
     $("#enviar_comentario").click(borrarFormulario);
+    
     $("#comentario").on("keypress", function(){
-        return limitar(255);
+        return limitar(50);
     }).on("keyup", function(){
         informar();
     });
 });
-
-/*function submitForm() {
- var data = $("#login-form").serialize();
- console.log(data);
- $.ajax({
- type: 'POST',
- url: '../archivos_php/login.php',
- data: data,
- success: function (response) {
- console.log(response);
- alert(response);
- if (response == "ok") {
- alert("funciona lokete");
- } else {
- alert("pos no funsiona lokete :/");
- }
- }
- });
- return false;
- }*/
 
 function submitForm() {
     var parametros = {

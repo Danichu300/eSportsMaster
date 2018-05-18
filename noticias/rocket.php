@@ -7,34 +7,38 @@ and open the template in the editor.
 <html>
     <head>
         <title>Rocket League</title>
+        <!-- Incluimos los cabezales comunes entre todas las noticias -->
         <?php include("../archivos_php/cabezales.php"); ?>
         <link rel="shortcut icon" href="img/csgoicon.ico" />
         <link rel="stylesheet" href="../css/rocketcss.css"/>
     </head>
     <body>
         
+        <!-- Incluimos el navegador, ya que es común entre las noticias -->
+        
         <?php include("../archivos_php/navegador.php"); ?>
+        
+        <!-- Contenedor del parallax del fondo -->
 
         <div class="parallax">
+            
+            <!-- Jumbotrón con el título y eslogan del videojuego -->
 
             <div class="jumbotron">
                 <h1 class="display-4">Rocket League</h1>
                 <p class="lead">Fútbol más coches igual a perfección.</p>
-                <!--<hr class="my-4">
-                <p>Últimas novedades.</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                </p>-->
             </div>
+            
+            <!-- Contenedor principal -->
 
             <div id="wrapper">
+                <!-- Sección que contiene los próximos partidos y torneos y equipos destacados -->
                 <section>
-                    <!-- <div class="borde"> -->
+                    <!-- Artículo que contiene los próximos partidos -->
                     <article id="partidos">
                         <h1>Próximos Partidos</h1>
                         <hr/>
                         <div class="contenido">
-                            <!--  <nav> -->
                             <ul>
                                 <?php
                                 $sql = "SELECT * FROM partido WHERE fecha_inicio > NOW() AND videojuego = 'rocket'";
@@ -45,16 +49,13 @@ and open the template in the editor.
                                 }
                                 ?>
                             </ul>
-                            <!-- </nav> -->
                         </div>                   
                     </article>
-                    <!--</div>-->
-                    <!-- <div class="borde"> -->
+                    <!-- Artículo que contiene los próximos torneos -->
                     <article id="torneos">
                         <h1>Próximos Torneos</h1>
                         <hr/>
                         <div class="contenido">
-                            <!-- <nav> -->
                             <ul>
                                 <?php
                                 $sql = "SELECT nombre_torneo FROM torneo JOIN partido ON partido=id_partido WHERE fecha_inicio > NOW() AND videojuego = 'rocket'";
@@ -65,16 +66,13 @@ and open the template in the editor.
                                 }
                                 ?>
                             </ul>
-                            <!-- </nav> -->
                         </div>
                     </article>
-                    <!--</div>-->
-                    <!-- <div class="borde"> -->
+                    <!-- Artículo que contiene los equipos -->
                     <article id="equipos">
-                        <h1>Equipos destacados</h1>
+                        <h1>Equipos</h1>
                         <hr/>
                         <div class="contenido">
-                            <!-- <nav> -->
                             <ul>
                                 <?php
                                 $sql = "SELECT * FROM equipo WHERE videojuego =" . 8;
@@ -85,14 +83,12 @@ and open the template in the editor.
                                 }
                                 ?>
                             </ul>
-                            <!-- </nav> -->
                         </div>
                     </article>
-                    <!-- </div> -->
                 </section>
-
+                <!-- Sección principal de la página -->
                 <main>
-
+                    <!-- Descripción del videojuego -->
                     <div class="informacion" id="descripcion">
                         <?php
                         $sql = "SELECT * FROM videojuego WHERE nombre_videojuego = 'DOTA 2'";
@@ -106,7 +102,7 @@ and open the template in the editor.
                             <p><?= $row['descripcion'] ?></p>
                         </div>
                     </div>
-
+                    <!-- Mecánicas del videojuego -->
                     <div class="informacion" id="mecanicas">
                         <h3>Mecánicas de las partidas</h3>
                         <hr/>
@@ -115,7 +111,7 @@ and open the template in the editor.
                             <p><?= $row['mecanicas'] ?></p>
                         </div>
                     </div>
-
+                    <!-- Tácticas del videojuego -->
                     <div class="informacion" id="tacticas">
                         <h3>Tácticas</h3>
                         <hr/>
@@ -136,10 +132,10 @@ and open the template in the editor.
                 </main>
                 
                 <?php
-                
+                //Consulta para mostrar todas las noticias relacionadas con este videojuego
                 $sql = "SELECT * FROM noticia WHERE videojuego = 'rocket'";
                 $result = $conn->query($sql);
-                
+                //Con cada noticia, montamos al estructura de la noticia
                 while($row = $result->fetch_array()){
                     echo "<div class='noticia'>";
                     echo "<h3>" . $row['titulo'] . "</h3>";
@@ -153,15 +149,14 @@ and open the template in the editor.
                     echo "</div>";
                 }
                 ?>
-
+                <!-- Formulario de los comentarios -->
                 <aside id="formularioComentarios">
                     <h1>Comentarios</h1>
                     <hr/>
                     <h3>Añade aquí tu comentario</h3>
-                    <!-- action="../archivos_php/comentarios.php" -->
                     <form id="formComments" method="post" action="../archivos_php/comentarios.php">
                         <p>Introduce tu nombre de usuario</p>
-                        <input id="usuario" name="user_comment" type="text" required/>
+                        <input id="usuario" name="user_comment" type="text" value=<?= $_SESSION['nombre_usuario'] ?> readonly/>
                         <p>Escribe lo que quieres compartir</p>
                         <textarea id="comentario" name="text_comment" required></textarea>
                         <input type="hidden" name="videojuego" value="rocket"/>
@@ -171,9 +166,10 @@ and open the template in the editor.
                 </aside>
 
                 <?php
+                //Consulta para mostrar todos los comentarios sobre este videojuego
                 $sql = "SELECT * FROM comentario WHERE videojuego = 'rocket'";
                 $result = $conn->query($sql);
-           
+                //Con cada comentario, montamos la estructura del comentario
                 while($row = $result->fetch_array()){
                     $buscarUsuario = "SELECT nombre_usuario FROM usuario WHERE id_usuario = " . $row['usuario'] . "";
                     $resultado = $conn->query($buscarUsuario);
@@ -189,6 +185,7 @@ and open the template in the editor.
             </div>
         </div>
         <!--Footer-->
+        <!-- Incluimos el footer, común en todas las páginas -->
         <?php include("../archivos_php/footer.php"); ?>
         <!--/.Footer-->
     </body>

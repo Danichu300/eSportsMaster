@@ -15,7 +15,6 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <!-- Navbar content -->
             <a class="navbar-brand" href="#">Creación de noticias</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,14 +27,24 @@
                 </ul>
             </div>
         </nav>
+        
+        <!-- Contenedor del parallax del fondo -->
 
         <div class="parallax">
+            
+            <!-- Jumbotrón con el título y eslogan de la zona admin -->
+            
             <div class="jumbotron">
                 <h1 class="display-4">Creador de noticias</h1>
                 <p class="lead">Espacio de admin.</p>
             </div>
+            
+            <!-- Contenedor principal -->
+            
             <div id="wrapper">
+                <!-- Sección principal -->
                 <section>
+                    <!-- Insertar partidos -->
                     <article class="bg-dark" id="partidos">
                         <h1>Próximos Partidos</h1>
                         <hr/>
@@ -61,6 +70,7 @@
                             <input type="submit" value="Insertar Partido"/>
                         </form>
                     </article>
+                    <!-- Insertar torneos -->
                     <article class="bg-dark" id="torneos">
                         <h1>Próximos Torneos</h1>
                         <hr/>
@@ -72,7 +82,7 @@
                             <select name="partido">
                                 <?php
                                 require("./conexion.php");
-
+                                //Mostramos los partidos que hay
                                 $sql = "SELECT * FROM partido";
 
                                 $result = $conn->query($sql);
@@ -87,8 +97,9 @@
                             <input type="submit" value="Insertar Torneo"/>
                         </form>
                     </article>
+                    <!-- Insertar equipos -->
                     <article class="bg-dark" id="equipos">
-                        <h1>Equipos destacados</h1>
+                        <h1>Equipos</h1>
                         <hr/>
                         <img id="img3" class="plus" src="../img/plus.png" alt="plus"/>
                         <form class="formularioInsert" method="post" action="./insertarpartido.php" style="display:none;">
@@ -100,7 +111,7 @@
                             <select name="videojuego">
                                 <?php
                                 require("./conexion.php");
-
+                                //Mostramos los videojuegos que hay
                                 $sql = "SELECT * FROM videojuego";
 
                                 $result = $conn->query($sql);
@@ -116,8 +127,9 @@
                         </form>
                     </article>
                 </section>
-
+                <!-- Contenedo principal -->
                 <main>
+                    <!-- Formulario para insertar noticias -->
                     <div id="divFormularioNoticia" class="bg-dark container-fluid">
                         <form id="formularioNoticia" method="post" action="./insertarnoticia.php">
                             <h3>Título de la noticia</h3>

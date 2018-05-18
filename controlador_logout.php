@@ -1,9 +1,12 @@
 <?php
+
+//Abrimos sesión para poder destruirla
 session_start();
-//Borrar contenido de $_SESSION
+//Borramos el contenido de la sesión
 session_unset();
-//elimina la sesio
+//Eliminamos la sesión
 session_destroy();
-//Te manda al index
+//Redirigimos al índice de php, que regula el control de sesiones
 header('location: index.php');
- ?>
+
+?>

@@ -1,3 +1,4 @@
+<!-- Navegador común -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Navbar content -->
             <a class="navbar-brand" href="#">No te lo pierdas</a>
