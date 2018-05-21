@@ -13,7 +13,6 @@ and open the template in the editor.
         <link rel="stylesheet" href="../css/csgocss.css"/>
     </head>
     <body>
-        
         <!-- Incluimos el navegador, ya que es común entre las noticias -->
         
         <?php include("../archivos_php/navegador.php"); ?>

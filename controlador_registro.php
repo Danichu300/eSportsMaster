@@ -18,12 +18,13 @@ $admin = 0;
 $sql = "SELECT * FROM usuario WHERE nombre_usuario = '" . $usuario . "' AND password = '" . $password . "'";
 //Ejecutamos la consulta
 $result = $conn->query($sql);
+$ok = false;
 //Si la consulta devuelve alguna fila quiere decir que ya está registrado
 if ($result->num_rows > 0) {
     //Devolvemos un 404 para que la petición salga errónea
-    http_response_code(404);
+   $ok = false;
     //Si no, quiere decir que el usuario no está registrado
-} else {
+} else if($usuario != null && $_POST["password"] != null){
     //Introducimos los datos del usuario en la base de datos
     $sql = "INSERT INTO usuario (nombre_usuario, password, admin) VALUES ('" . $usuario . "','" . $password . "'," . $admin . ")";
     //Ejecutamos la consulta
@@ -32,7 +33,16 @@ if ($result->num_rows > 0) {
         $_SESSION['nombre_usuario'] = $usuario;
     }
     //Devolvemos un 200 si todo ha ido bien
-    http_response_code(200);
+    $ok = true;
 }
+ if ($ok) {
+        //Enviamos un 200 para indicar que la petición se ha realizado correctamente
+        http_response_code(200);
+        //Si no se ha encontrado el usuario
+    } else {
+        //Enviamos un 404 para indicar que la petición no ha ido bien
+        http_response_code(404);
+    }
+
 
 ?>

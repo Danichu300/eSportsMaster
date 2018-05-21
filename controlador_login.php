@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     //Mientras haya registros en la consulta
     while ($row = $result->fetch_assoc()) {
         //Si coincide el usuario con la contraseña
-        if ($usuario == $row["nombre_usuario"] && $password == $row["password"]) {
+        if ($usuario == $row["nombre_usuario"] && $password == $row["password"] && $row["nombre_usuario"] != "" && $row["password"] != "") {
             //Creamos la sesión con el nombre de usuario
             $_SESSION["nombre_usuario"] = $usuario;
             //Activamos la variable que controla que el usuario se ha encontrado

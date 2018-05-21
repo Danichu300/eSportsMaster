@@ -100,6 +100,7 @@
                     //Si la petición ha ido bien
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         //Redirigimos a la página principal
+                        localStorage.setItem('logged','true');
                         window.location = "home.html";
                         //Si la petición ha ido mal
                     } else if (xhr.readyState === 4 && xhr.status === 404) {

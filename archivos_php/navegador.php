@@ -40,9 +40,15 @@
                     ?>
                     <li class="nav-item dropdown">
                             <div ALIGN=center>
-                                <input type="button" onClick="document.location = '../controlador_logout.php'" name="cerrar_sesion" value="Logout">
+                                <input type="button" onClick="loggout()" name="cerrar_sesion" value="Logout">
                             </div>
                     </li>
                 </ul>
             </div>
         </nav>
+<script>
+    function loggout(){
+        localStorage.setItem('logged','false');
+        window.location = '../controlador_logout.php'
+    }
+</script>
