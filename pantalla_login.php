@@ -52,7 +52,7 @@
                // saltoError();
                 //Enviamos la petición al controlador correspondiente
                 enviarPeticion('./controlador_registro.php');
-                //fetch('http://localhost/pruebas/eSportsReview/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
+                //fetch('http://localhost/eSportsMaster/controlador_registro.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
             
             // Añadimos la funcionalidad al botón de entrar
@@ -64,7 +64,7 @@
                // saltoError();
                 //Enviamos la petición al controlador correspondiente
                 enviarPeticion('./controlador_login.php');
-                //fetch('http://localhost/pruebas/eSportsReview/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
+                //fetch('http://localhost/eSportsMaster/controlador_login.php', {method: 'post',body: `usuario=${document.querySelector('#usuario').value}&password=${btoa(document.querySelector('#password').value)}`})
             });
             
             // Añadimos la funcionalidad al botón de limpiar campos

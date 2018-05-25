@@ -34,7 +34,6 @@ function activarEmail() {
 }
 
 function borrarFormulario() {
-    $("#usuario").html("");
     $("#comentario").html("");
     location.reload(true);
 }

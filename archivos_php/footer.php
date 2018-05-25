@@ -15,23 +15,23 @@
                 <!--Grid column-->
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                     <!--Facebook-->
-                    <a class="fb-ic ml-0" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//rawgit.com/Danichu300/eSportsReview/Descargar/index.html">
+                    <a class="fb-ic ml-0" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/Danichu300/eSportsMaster/">
                         <i class="fa fa-facebook white-text mr-lg-4"> </i>
                     </a>
                     <!--Twitter-->
-                    <a class="tw-ic" target="_blank" href="https://twitter.com/home?status=https%3A//rawgit.com/Danichu300/eSportsReview/Descargar/index.html">
+                    <a class="tw-ic" target="_blank" href="https://twitter.com/home?status=https%3A//github.com/Danichu300/eSportsMaster/">
                         <i class="fa fa-twitter white-text mr-lg-4"> </i>
                     </a>
                     <!--Google +-->
-                    <a class="gplus-ic" target="_blank" href="https://plus.google.com/share?url=https%3A//rawgit.com/Danichu300/eSportsReview/Descargar/index.html">
+                    <a class="gplus-ic" target="_blank" href="https://plus.google.com/share?url=https%3A//github.com/Danichu300/eSportsMaster/">
                         <i class="fa fa-google-plus white-text mr-lg-4"> </i>
                     </a>
                     <!--Linkedin-->
-                    <a class="li-ic" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//rawgit.com/Danichu300/eSportsReview/Descargar/index.html&title=&summary=&source=">
+                    <a class="li-ic" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//github.com/Danichu300/eSportsMaster&title=&summary=&source=">
                         <i class="fa fa-linkedin white-text mr-lg-4"> </i>
                     </a>
                     <!--Email-->
-                    <a class="ins-ic" target="_blank" href="mailto:Awesome eSports Page!!!?&body=https%3A//rawgit.com/Danichu300/eSportsReview/Descargar/index.html">
+                    <a class="ins-ic" target="_blank" href="mailto:Awesome eSports Page!!!?&body=https%3A//github.com/Danichu300/eSportsMaster">
                         <i class="fa fa-envelope white-text mr-lg-4"> </i>
                     </a>
                 </div>
