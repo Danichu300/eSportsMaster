@@ -27,12 +27,16 @@ section{
 }
 
 .informacion{
-    background-color: lightseagreen;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    color: white;
     /*box-shadow: 5px 5px 5px grey;*/
+}
+
+hr{
+    border-color: white;
 }
 
 article{
@@ -67,9 +71,10 @@ aside{
     width: 100%;
     height: auto;
     border: 1px solid black;
-    background: darkkhaki;
+    background: #343a40!important;
     padding: 20px;
     margin-top: 15px;
+    color:white;
 }
 
 #comentario{
@@ -98,30 +103,3 @@ aside{
     width: 25%;
     padding: 10px;
 }
-
-/* Efecto de borde que se contrae. */
-/*
-.borde{
-    position: relative;
-}
-
-.borde:before{
-    content: '';
-    position: absolute;
-    border: 1px none red;
-    top: -8px;
-    bottom: -8px;
-    left: -8px;
-    right: -8px;
-    -webkit-transition-duration: 0.5s;
-}
-
-.borde:hover:before{
-    border: 1px solid red;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-}
-
-*/
