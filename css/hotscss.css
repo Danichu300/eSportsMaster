@@ -36,6 +36,14 @@ article > hr{
     border-color: white;
 }
 
+.informacion{
+    background-color: #040A11 !important;
+}
+
+aside{
+    background-color: #040A11 !important;
+}
+
 article:hover{
     border: 1px solid grey;
 }
@@ -50,9 +58,10 @@ article:hover{
 }
 
 .noticia{
-    background: gray;
+    background: #040A11 !important;
     margin: 15px 0;
     padding: 15px;
+    color: white;
 }
 
 .noticia h3{
