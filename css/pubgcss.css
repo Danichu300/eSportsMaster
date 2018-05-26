@@ -32,6 +32,14 @@ article{
     background-color: gray;
 }
 
+.informacion{
+    background-color: gray !important;
+}
+
+aside{
+    background-color: gray !important;
+}
+
 article > hr{
     border-color: white;
 }
@@ -53,6 +61,7 @@ article:hover{
     background: gray;
     margin: 15px 0;
     padding: 15px;
+    color: white;
 }
 
 .noticia h3{
