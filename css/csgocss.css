@@ -52,6 +52,11 @@ article:hover{
     background: gray;
     margin: 15px 0;
     padding: 15px;
+    color: white;
+}
+
+.noticia hr{
+    border-color: white;
 }
 
 .noticia h3{
