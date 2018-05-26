@@ -100,7 +100,7 @@ and open the template in the editor.
                         ?>
                         <hr/>
                         <div class="izquierda-img">
-                            <img src="../img/csgologo.jpg"/>
+                            <img src="../img/dota1.jpg"/>
                             <p><?= $row['descripcion'] ?></p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ and open the template in the editor.
                         <h3>Mecánicas de las partidas</h3>
                         <hr/>
                         <div class="derecha-img">
-                            <img src="../img/csgologo.jpg"/>
+                            <img src="../img/dota2.jpg"/>
                             <p><?= $row['mecanicas'] ?></p>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ and open the template in the editor.
                         <h3>Tácticas</h3>
                         <hr/>
                         <div class="izquierda-img">
-                            <img src="../img/csgologo.jpg"/>
+                            <img src="../img/dota3.jpg"/>
                             <ul>
                                 <?php
                                 $texto = $row['tacticas'];
