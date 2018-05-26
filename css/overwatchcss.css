@@ -49,8 +49,16 @@ article:hover{
     height: 250px;
 }
 
+.informacion{
+    background-color: dodgerblue !important;
+}
+
+aside{
+    background-color: dodgerblue !important;
+}
+
 .noticia{
-    background: gray;
+    background: dodgerblue;
     margin: 15px 0;
     padding: 15px;
 }
