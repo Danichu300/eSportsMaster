@@ -97,7 +97,7 @@ and open the template in the editor.
                 <!-- Sección principal de la página -->
                 <main>
                     <!-- Descripción del videojuego -->
-                    <div class="informacion" id="descripcion">
+                    <div class="informacion bg-dark" id="descripcion">
                         <?php
                         $sql = "SELECT * FROM videojuego WHERE nombre_videojuego = 'Counter-Strike Global Offensive'";
                         $result = $conn->query($sql);
@@ -111,20 +111,20 @@ and open the template in the editor.
                         </div>
                     </div>
                     <!-- Mecánicas del videojuego -->
-                    <div class="informacion" id="mecanicas">
+                    <div class="informacion bg-dark" id="mecanicas">
                         <h3>Mecánicas de las partidas</h3>
                         <hr/>
                         <div class="derecha-img">
-                            <img src="../img/csgologo.jpg"/>
+                            <img src="../img/cs2.jpg"/>
                             <p><?= $row['mecanicas'] ?></p>
                         </div>
                     </div>
                     <!-- Tácticas del videojuego -->
-                    <div class="informacion" id="tacticas">
+                    <div class="informacion bg-dark" id="tacticas">
                         <h3>Tácticas</h3>
                         <hr/>
                         <div class="izquierda-img">
-                            <img src="../img/csgologo.jpg"/>
+                            <img src="../img/csgo3.jpg"/>
                             <ul>
                                 <?php
                                 $texto = $row['tacticas'];
@@ -145,7 +145,7 @@ and open the template in the editor.
                 $result = $conn->query($sql);
                 //Con cada noticia, montamos al estructura de la noticia
                 while ($row = $result->fetch_array()) {
-                    echo "<div class='noticia'>";
+                    echo "<div class='noticia bg-dark'>";
                     echo "<h3>" . $row['titulo'] . "</h3>";
                     echo "<hr/>";
                     if ($row['imagen']) {
