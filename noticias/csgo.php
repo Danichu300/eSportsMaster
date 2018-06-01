@@ -150,7 +150,7 @@ and open the template in the editor.
                     echo "<hr/>";
                     if ($row['imagen']) {
                         echo "<div id='contenedor_imagen'>";
-                        echo "<img src='../img/" . $row['imagen'] . "' alt='imagen_noticia'/>";
+                        echo "<img src='../archivos_php/uploads/" . $row['imagen'] . "' alt='imagen_noticia'/>";
                         echo "</div>";
                     }
                     echo "<p>" . $row['contenido'] . "</p>";
