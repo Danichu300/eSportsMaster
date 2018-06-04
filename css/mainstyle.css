@@ -18,7 +18,8 @@ nav{
     background-color: #393232;
     justify-content: center;
     align-content: center;
-    overflow: auto;
+    /* overflow: auto;*/
+    flex-wrap: wrap;
 }
 
 .logo_container{
@@ -33,7 +34,6 @@ nav{
     overflow: hidden;
     margin: 20px;
     background-color: white;
-    flex-wrap: wrap;
 }
 
 .logo_container img{
