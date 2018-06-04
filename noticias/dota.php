@@ -190,5 +190,6 @@ and open the template in the editor.
         <!-- Incluimos el footer, común en todas las páginas -->
         <?php include("../archivos_php/footer.php"); ?>
         <!--/.Footer-->
+        <?php include("../archivos_php/localstorage.php"); ?>
     </body>
 </html>
